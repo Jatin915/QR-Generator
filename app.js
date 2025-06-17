@@ -1,0 +1,1 @@
+const API=`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}&size=200x200`;
