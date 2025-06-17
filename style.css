@@ -46,10 +46,11 @@ body{
         color: white;
         font-size: medium;
         margin-bottom: 15px;
+    }button:hover{
+        cursor: pointer;
     }
 
     #image-box{
-        /* height: 200px; */
         width: 200px;
         text-align: center;
         margin-left: 39.97px;
