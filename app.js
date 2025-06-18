@@ -1,16 +1,22 @@
 function GenerateQR() {
-    const qrText = document.querySelector("input").value.trim();
+    const input = document.querySelector("#qrText");
+    const qrText = input.value.trim();
 
-    if(!qrText) return alert("enter valid Text or URL");
+    // Prevent QR generation for empty input
+    if (!qrText) {
+        alert("Enter valid Text or URL");
+        return;
+    }
 
-    const Image = document.querySelector("img");
-    Image.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}&size=200x200`;
+    const qrURL = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}&size=200x200`;
 
-let downloadBtn=document.querySelector("#download");
-let Download = document.querySelector("a");
-Download.href="`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}&size=200x200`";
-downloadBtn.style.display = "inline-block";
+    const image = document.querySelector("img");
+    const downloadBtn = document.querySelector("#download");
+    const downloadLink = document.querySelector("a");
 
+    image.src = qrURL;
+    downloadLink.href = qrURL;
+    downloadBtn.style.display = "inline-block";
 }
 
 function modeChange(){
